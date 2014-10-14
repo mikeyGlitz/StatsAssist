@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package basketballcalculator;
+package stats.exam.assist;
 
 import java.util.ArrayList;
 import org.apache.commons.math3.util.CombinatoricsUtils;
@@ -22,7 +22,7 @@ import org.apache.commons.math3.util.CombinatoricsUtils;
  * </p>
  * @author Michael Glitzos
  */
-public class Main {
+public class BasketBallBinom {
     /**
      * Main method. This is the application's primary entry point.
      * @param args Command-line arguments
@@ -31,12 +31,11 @@ public class Main {
         //Declare variables for the probability distribution formula
         double p = 0.90;
         int n = 25;
-        int y = 22;
         
         ArrayList<Double> calculatedDistributions = new ArrayList<>();
         for(int i = 23; i <= 25; i++){
-            double combintion = calculateCombination(y, n);
-            double distribution = calculateBernoulliDistribution(p, n, y);
+            double combintion = CombinationHelper.calculateCombination(n, i);
+            double distribution = calculateBernoulliDistribution(p, n, i);
             
             double binomialDistribution = combintion * distribution;
             System.out.println("Binomial Distribution, p(" + i + ") = " + 
@@ -45,29 +44,12 @@ public class Main {
             calculatedDistributions.add(binomialDistribution);
         }
         
-        double probabilityLessEqual22 = 0.0;
+        double probabilityGreater22 = 0.0;
         for(double distribution : calculatedDistributions){
-            probabilityLessEqual22 += distribution;
+            probabilityGreater22 += distribution;
         }
         
-        System.out.println("Probability that p(y > 22) = " + probabilityLessEqual22);
-    }
-    
-    /**
-     * Calculates the combination given the parameters y and n.
-     * <p>
-     * This method models the formula n!/(n!(n-y)!)
-     * </p>
-     * @param y the value of Y from the binomial probability distribution function
-     * @param n the value of n from the binomial probability distribution function
-     * @return the combination, C(n,y)
-     */
-    private static double calculateCombination(int y, int n){
-        double factorialN = CombinatoricsUtils.factorialDouble(n);
-        double factorialNMinusY = CombinatoricsUtils.factorial(n-y);
-        
-        double combination = factorialN / (factorialN * factorialNMinusY);
-        return combination;
+        System.out.println("Probability that p(y > 22) = " + probabilityGreater22);
     }
     
     /**
@@ -78,7 +60,7 @@ public class Main {
      * @return the Bernoulli Distribution for the given variables.
      */
     private static double calculateBernoulliDistribution(double p, int n, int y){
-        double q = 1 - p;
+        double q = 1.0 - p;
         
         double pRaisedY = Math.pow(p, y);
         double qRaisedNMinusY = Math.pow(q, n - y);
