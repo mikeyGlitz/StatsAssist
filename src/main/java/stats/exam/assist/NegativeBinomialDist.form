@@ -117,7 +117,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="resultLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jTextField1" pref="166" max="32767" attributes="0"/>
+                  <Component id="resultField" pref="166" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="calculateButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -131,7 +131,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" alignment="1" groupAlignment="3" attributes="0">
                           <Component id="resultLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="resultField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="calculateButton" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -146,7 +146,7 @@
             <Property name="text" type="java.lang.String" value="p(y) = "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="resultField">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
           </Properties>

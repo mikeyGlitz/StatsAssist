@@ -36,7 +36,7 @@ public class NegativeBinomialDist extends javax.swing.JFrame {
         rField = new javax.swing.JFormattedTextField();
         resultPanel = new javax.swing.JPanel();
         resultLabel = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        resultField = new javax.swing.JTextField();
         calculateButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -93,7 +93,7 @@ public class NegativeBinomialDist extends javax.swing.JFrame {
 
         resultLabel.setText("p(y) = ");
 
-        jTextField1.setEditable(false);
+        resultField.setEditable(false);
 
         calculateButton.setText("Calculate");
         calculateButton.addActionListener(new java.awt.event.ActionListener() {
@@ -110,7 +110,7 @@ public class NegativeBinomialDist extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(resultLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                .addComponent(resultField, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(calculateButton)
                 .addContainerGap())
@@ -122,7 +122,7 @@ public class NegativeBinomialDist extends javax.swing.JFrame {
                 .addGroup(resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, resultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(resultLabel)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(resultField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(calculateButton, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
@@ -146,8 +146,9 @@ public class NegativeBinomialDist extends javax.swing.JFrame {
         double multiplied = pRaisedY * qRaised;
         System.out.println("p^y * q^(n-y): " + multiplied);
 
-        double binomialDist = nyCombination * multiplied;
-        System.out.println("Binomial distribution: " + binomialDist);
+        double negBinomialDist = nyCombination * multiplied;
+        System.out.println("Negative Binomial distribution: " + negBinomialDist);
+        resultField.setText(String.valueOf(negBinomialDist));
     }//GEN-LAST:event_calculateButtonActionPerformed
 
     /**
@@ -179,11 +180,11 @@ public class NegativeBinomialDist extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton calculateButton;
     private javax.swing.JPanel entryPanel;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JFormattedTextField pField;
     private javax.swing.JLabel pLabel;
     private javax.swing.JFormattedTextField rField;
     private javax.swing.JLabel rLabel;
+    private javax.swing.JTextField resultField;
     private javax.swing.JLabel resultLabel;
     private javax.swing.JPanel resultPanel;
     private javax.swing.JFormattedTextField yField;
